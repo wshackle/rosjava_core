@@ -13,7 +13,6 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
 package org.ros.rosjava_tutorial_pubsub;
 
 import org.ros.concurrent.CancellableLoop;
@@ -25,48 +24,52 @@ import org.ros.node.topic.Publisher;
 
 /**
  * A simple {@link Publisher} {@link NodeMain}.
- * 
+ *
  * @author damonkohler@google.com (Damon Kohler)
  */
 public class Talker extends AbstractNodeMain {
-  private String topic_name;
 
-  public Talker() {
-    topic_name = "chatter";
-  }
+    private String topic_name;
 
-  public Talker(String topic)
-  {
-    topic_name = topic;
-  }
+    public Talker() {
+        topic_name = "chatter";
+    }
 
-  @Override
-  public GraphName getDefaultNodeName() {
-    return GraphName.of("rosjava_tutorial_pubsub/talker");
-  }
+    public Talker(String topic) {
+        topic_name = topic;
+    }
 
-  @Override
-  public void onStart(final ConnectedNode connectedNode) {
-    final Publisher<std_msgs.String> publisher =
-        connectedNode.newPublisher(topic_name, std_msgs.String._TYPE);
-    // This CancellableLoop will be canceled automatically when the node shuts
-    // down.
-    connectedNode.executeCancellableLoop(new CancellableLoop() {
-      private int sequenceNumber;
+    @Override
+    public GraphName getDefaultNodeName() {
+        return GraphName.of("rosjava_tutorial_pubsub/talker");
+    }
 
-      @Override
-      protected void setup() {
-        sequenceNumber = 0;
-      }
+    @Override
+    public void onStart(final ConnectedNode connectedNode) {
+        final Publisher<std_msgs.String> publisher
+                = connectedNode.newPublisher(topic_name, std_msgs.String._TYPE);
+        // This CancellableLoop will be canceled automatically when the node shuts
+        // down.
+        connectedNode.executeCancellableLoop(new CancellableLoop() {
+            private int sequenceNumber;
 
-      @Override
-      protected void loop() throws InterruptedException {
-        std_msgs.String str = publisher.newMessage();
-        str.setData("Hello world! " + sequenceNumber);
-        publisher.publish(str);
-        sequenceNumber++;
-        Thread.sleep(1000);
-      }
-    });
-  }
+            @Override
+            protected void setup() {
+                sequenceNumber = 0;
+            }
+
+            @Override
+            protected void loop() throws InterruptedException {
+                std_msgs.String str = publisher.newMessage();
+                str.setData("Hello world! " + sequenceNumber);
+                publisher.publish(str);
+                sequenceNumber++;
+                Thread.sleep(1000);
+            }
+        });
+    }
+
+    public static void main(String[] args) throws Exception {
+        org.ros.RosRun.main(new String[]{Talker.class.getCanonicalName()});
+    }
 }

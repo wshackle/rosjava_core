@@ -47,4 +47,8 @@ public class Listener extends AbstractNodeMain {
       }
     });
   }
+  
+    public static void main(String[] args) throws Exception {
+        org.ros.RosRun.main(new String[]{Listener.class.getCanonicalName()});
+    }
 }

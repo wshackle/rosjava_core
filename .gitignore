@@ -10,3 +10,8 @@ bin
 .idea
 bazel-*
 local.properties
+/rosjava/target/
+/apache_xmlrpc_common/target/
+/rosjava_tutorial_pubsub/target/
+/rosjava_tutorial_services/target/
+/rosjava_tutorial_right_hand_rule/target/

@@ -13,7 +13,6 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
 package org.ros.rosjava_tutorial_services;
 
 import org.ros.namespace.GraphName;
@@ -25,25 +24,29 @@ import org.ros.node.service.ServiceServer;
 
 /**
  * This is a simple {@link ServiceServer} {@link NodeMain}.
- * 
+ *
  * @author damonkohler@google.com (Damon Kohler)
  */
 public class Server extends AbstractNodeMain {
 
-  @Override
-  public GraphName getDefaultNodeName() {
-    return GraphName.of("rosjava_tutorial_services/server");
-  }
+    @Override
+    public GraphName getDefaultNodeName() {
+        return GraphName.of("rosjava_tutorial_services/server");
+    }
 
-  @Override
-  public void onStart(ConnectedNode connectedNode) {
-    connectedNode.newServiceServer("add_two_ints", rosjava_test_msgs.AddTwoInts._TYPE,
-        new ServiceResponseBuilder<rosjava_test_msgs.AddTwoIntsRequest, rosjava_test_msgs.AddTwoIntsResponse>() {
-          @Override
-          public void
-              build(rosjava_test_msgs.AddTwoIntsRequest request, rosjava_test_msgs.AddTwoIntsResponse response) {
-            response.setSum(request.getA() + request.getB());
-          }
+    @Override
+    public void onStart(ConnectedNode connectedNode) {
+        connectedNode.newServiceServer("add_two_ints", rosjava_test_msgs.AddTwoInts._TYPE,
+                new ServiceResponseBuilder<rosjava_test_msgs.AddTwoIntsRequest, rosjava_test_msgs.AddTwoIntsResponse>() {
+            @Override
+            public void
+                    build(rosjava_test_msgs.AddTwoIntsRequest request, rosjava_test_msgs.AddTwoIntsResponse response) {
+                response.setSum(request.getA() + request.getB());
+            }
         });
-  }
+    }
+
+    public static void main(String[] args) throws Exception {
+        org.ros.RosRun.main(new String[]{Server.class.getCanonicalName()});
+    }
 }

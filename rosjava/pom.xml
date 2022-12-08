@@ -19,6 +19,42 @@
     </repositories>
     <dependencies>
         <dependency>
+            <groupId>dnsjava</groupId>
+            <artifactId>dnsjava</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.wshackle</groupId>
+            <artifactId>apache_xmlrpc_client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.wshackle</groupId>
+            <artifactId>apache_xmlrpc_server</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ros.rosjava_messages</groupId>
+            <artifactId>std_msgs</artifactId>
+            <version>0.5.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ros.rosjava_messages</groupId>
+            <artifactId>nav_msgs</artifactId>
+            <version>1.12.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ros.rosjava_messages</groupId>
+            <artifactId>rosgraph_msgs</artifactId>
+            <version>1.11.2</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.ros.rosjava_bootstrap</groupId>
+            <artifactId>message_generation</artifactId>
+            <version>0.3.3</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>12.0</version>
@@ -27,6 +63,29 @@
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ros.rosjava_messages</groupId>
+            <artifactId>rosjava_test_msgs</artifactId>
+            <version>0.3.0</version>
+             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.5</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <properties>

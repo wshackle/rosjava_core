@@ -15,3 +15,5 @@ local.properties
 /rosjava_tutorial_pubsub/target/
 /rosjava_tutorial_services/target/
 /rosjava_tutorial_right_hand_rule/target/
+/apache_xmlrpc_client/target/
+/apache_xmlrpc_server/target/

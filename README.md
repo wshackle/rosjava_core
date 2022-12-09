@@ -1,10 +1,11 @@
-rosjava is the first pure Java implementation of ROS.
+rosjava is a set of tools and libraries needed for Java to communicate with ROS programs that would otherwise be restricted to C++ and Python.
+(See [ROS.org](http://www.ros.org/) for more info on ROS.)  
 
-From [ROS.org](http://www.ros.org/wiki/): ROS is an open-source, meta-operating
-system for your robot. It provides the services you would expect from an
-operating system, including hardware abstraction, low-level device control,
-implementation of commonly-used functionality, message-passing between
-processes, and package management.
+This is a fork of rosjava_core.
+
+It differs in that it uses maven as its build system rather than bazel and gradle.
+Additional changes may be coming.
+
 
 Developed at Google in cooperation with Willow Garage, rosjava enables
 integration of Android and ROS compatible robots. This project is under active
@@ -12,10 +13,10 @@ development and currently alpha quality software. Please report bugs and feature
 requests on the [issues
 list](https://github.com/rosjava/rosjava/issues?state=open).
 
-To get started, visit the
-[rosjava_core](http://rosjava.github.com/rosjava_core/latest) and
-[android_core](http://rosjava.github.com/android_core/latest) pages for
-documentation concerning the core libraries and examples. Also visit the roswiki
+There is some old documention for rosjava on 
+[archive.org] (http://web.archive.org/web/20140729133732/http://rosjava.github.io/rosjava_core/latest)
+
+Also visit the roswiki
 [rosjava](http://wiki.ros.org/rosjava) and
 [android](http://wiki.ros.org/android) pages for more general rosjava-android
 information.

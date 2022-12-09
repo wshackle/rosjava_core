@@ -6,6 +6,9 @@ This is a fork of rosjava_core.
 It differs in that it uses maven as its build system rather than bazel and gradle.
 Additional changes may be coming.
 
+Javadoc documentaion is available at https://wshackle.github.io/rosjava/apidocs/index.html
+
+
 To build on ubuntu
 
 sudo apt-get install default-jdk maven

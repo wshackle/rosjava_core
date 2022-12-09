@@ -72,7 +72,7 @@ public class TcpClientManager {
   }
 
   /**
-   * Sets all {@link TcpClientConnection}s as non-persistent and closes all open
+   * Sets all {@link TcpClient} Connections as non-persistent and closes all open
    * {@link Channel}s.
    */
   public void shutdown() {

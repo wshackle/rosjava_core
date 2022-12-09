@@ -103,7 +103,7 @@ public class ListenerGroup<T> {
   }
 
   /**
-   * Removes and cancels the {@EventDispatcher} specified by the listener
+   * Removes and cancels the {@link EventDispatcher} specified by the listener
    * from the {@link ListenerGroup}.
    * @param listener the listener to remove
    * @return flag indicating successful removal

@@ -38,11 +38,11 @@ or
 
 then run the message_generation jar file with 
 
-    java -jar \[PATH_TO_TARGET\]rosjava.message_generation-\[MESSAGE_GENERATION_VERSION\]-with-dependencies.jar \[OUTPUT_DIRECTORY\] \[ROS_PACKAGE\]
+    java -jar \[PATH_TO_TARGET\]rosjava.message_generation-\[MESSAGE_GENERATION_VERSION\]-full.jar \[OUTPUT_DIRECTORY\] \[ROS_PACKAGE\]
 
 for example
 
-    java -jar rosjava_core/message_generation/target/rosjava.message_generation-1.0-SNAPSHOT-jar-with-dependencies.jar  /tmp moveit_msgs
+    java -jar rosjava_core/message_generation/target/rosjava.message_generation-1.0-SNAPSHOT-full.jar  /tmp moveit_msgs
 
 will generate the Java source files for the moveit_msgs package in /tmp/moveit_msgs.
 

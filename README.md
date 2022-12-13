@@ -13,7 +13,7 @@ To build on ubuntu
 
 sudo apt-get install default-jdk maven
 
-To install on other platforms install a JDK (Java SE Development Kit) from [Adoptium](https://adoptium.net/) or [Oracle](https://www.oracle.com/java/technologies/downloads/) and maven from [Apache](https://maven.apache.org/download.cgi?.)
+To install on other platforms install a JDK (Java SE Development Kit) from [Adoptium](https://adoptium.net/) or [Oracle Java Downloads](https://www.oracle.com/java/technologies/downloads/) and maven from [Apache](https://maven.apache.org/download.cgi?.)
 
 
 Compile with maven with:

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/isd/shackle/catkin_ws2/devel/.private/rosjava_messages/setup.sh

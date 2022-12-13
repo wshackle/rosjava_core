@@ -19,3 +19,33 @@ To install on other platforms install a JDK (Java SE Development Kit) from [Adop
 Compile with maven with:
 
 mvn install
+
+
+To generate java sources for a ROS package.
+
+Set the ROS_PACKAGE_PATH environment variable by sourcing the setup.bash of either the
+main distribution or a catkin workspace where the package was installed.
+
+For example:
+
+
+    source /opt/ros/melodic/setup.bash
+
+or
+
+    cd ~/ws_moveit
+    source devel/setup.bash
+
+then run the message_generation jar file with 
+
+    java -jar \[PATH_TO_TARGET\]rosjava.message_generation-\[MESSAGE_GENERATION_VERSION\]-with-dependencies.jar \[OUTPUT_DIRECTORY\] \[ROS_PACKAGE\]
+
+for example
+
+    java -jar rosjava_core/message_generation/target/rosjava.message_generation-1.0-SNAPSHOT-jar-with-dependencies.jar  /tmp moveit_msgs
+
+will generate the Java source files for the moveit_msgs package in /tmp/moveit_msgs.
+
+
+    
+

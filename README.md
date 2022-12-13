@@ -3,8 +3,12 @@ rosjava is a set of tools and libraries needed for Java to communicate with ROS 
 
 This is a fork of [rosjava_core](https://github.com/rosjava/rosjava_core).
 
-It differs in that it uses maven as its build system rather than bazel and gradle.
-Additional changes may be coming.
+It differs in the following ways:
+
+    * it uses maven as its build system rather than bazel and gradle.
+    * it combines multiple dependancies so that the whole thing can be checkedout with one command and compiled with one command.
+    * it adds the dependencies to the message_generation jar file so that source code can be generated without setting up a long classpath.
+
 
 Javadoc documentaion is available at https://wshackle.github.io/rosjava/apidocs/index.html
 

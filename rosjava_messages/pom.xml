@@ -35,6 +35,9 @@
         <module>rosjava_test_msgs</module>
         <module>octomap_msgs</module>
         <module>object_recognition_msgs</module>
+        <module>moveit_msgs</module>
+        <module>industrial_msgs</module>
+        <module>motoman_msgs</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -51,5 +51,15 @@ for example
 will generate the Java source files for the moveit_msgs package in /tmp/moveit_msgs.
 
 
+The script make_messages_project.bash will generate the source and a pom.xml file with
+dependancies obtained from rospack depends.
+
+For example:
+
+    ./make_messages_project.bash motoman_msgs
+
+
+will generate projects in rosjava_messages/motoman_msgs/ and rosjava_messages/industrial_msgs/ since that is a dependency.
+ 
     
 

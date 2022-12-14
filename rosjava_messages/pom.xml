@@ -1,24 +1,42 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.wshackle</groupId>
-    <artifactId>rosjava_messages.</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <dependencies>
-        <dependency>
-            <groupId>com.github.wshackle</groupId>
-            <artifactId>rosjava.message_generation</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
- 
+    
+    <parent>
+        <groupId>com.github.wshackle</groupId>
+        <artifactId>rosjava_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>rosjava_messages</artifactId>
+    
+    <packaging>pom</packaging>
+    <modules>
+        <module>std_msgs</module>
+        <module>actionlib_msgs</module>
+        <module>atomic_configure</module>
+        <module>catkin</module>
+        <module>catkin_generated</module>
+        <module>diagnostic_msgs</module>
+        <module>geometry_msgs</module>
+        <module>gtest</module>
+        <module>nav_msgs</module>
+        <module>roscpp</module>
+        <module>rosgraph_msgs</module>
+        <module>sensor_msgs</module>
+        <module>shape_msgs</module>
+        <module>std_srvs</module>
+        <module>stereo_msgs</module>
+        <module>test_results</module>
+        <module>tf2_msgs</module>
+        <module>trajectory_msgs</module>
+        <module>visualization_msgs</module>
+        <module>test_msgs</module>
+        <module>rosjava_test_msgs</module>
+        <module>octomap_msgs</module>
+        <module>object_recognition_msgs</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 </project>
-
-

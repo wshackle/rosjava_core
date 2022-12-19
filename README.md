@@ -10,8 +10,9 @@ It differs in the following ways:
     * it adds the dependencies to the message_generation jar file so that source code can be generated without setting up a long classpath.
 
 
-Javadoc documentaion is available at https://wshackle.github.io/rosjava/apidocs/index.html
+Javadoc documentaion built from this fork is available at https://wshackle.github.io/rosjava/apidocs/index.html
 
+The instructions and javadoc copied from  the original source is at https://wshackle.github.io/orig_rosjava/0.1.6/
 
 To build on ubuntu
 

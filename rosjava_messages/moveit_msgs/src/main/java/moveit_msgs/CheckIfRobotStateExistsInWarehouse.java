@@ -1,6 +1,11 @@
 package moveit_msgs;
 
-public interface CheckIfRobotStateExistsInWarehouse extends org.ros.internal.message.Message {
+public interface CheckIfRobotStateExistsInWarehouse {
   static final java.lang.String _TYPE = "moveit_msgs/CheckIfRobotStateExistsInWarehouse";
-  static final java.lang.String _DEFINITION = "string name\nstring robot\n\n---\n\nbool exists\n";
+  static final java.lang.String _DEFINITION = ""
+      + "string name\n"
+      + "string robot\n"
+      + "---\n"
+      + "bool exists\n"
+      + "";
 }

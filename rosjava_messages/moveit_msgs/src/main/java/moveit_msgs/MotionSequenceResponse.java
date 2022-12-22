@@ -1,8 +1,17 @@
 package moveit_msgs;
 
-public interface MotionSequenceResponse extends org.ros.internal.message.Message {
+public interface MotionSequenceResponse {
   static final java.lang.String _TYPE = "moveit_msgs/MotionSequenceResponse";
-  static final java.lang.String _DEFINITION = "# An error code reflecting what went wrong\nMoveItErrorCodes error_code\n\n# The full starting state of the robot at the start of the sequence\nRobotState sequence_start\n\n# The trajectories that the planner produced for execution\nRobotTrajectory[] planned_trajectories\n\n# The amount of time it took to complete the motion plan\nfloat64 planning_time\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# An error code reflecting what went wrong\n"
+      + "MoveItErrorCodes error_code\n"
+      + "# The full starting state of the robot at the start of the sequence\n"
+      + "RobotState sequence_start\n"
+      + "# The trajectories that the planner produced for execution\n"
+      + "RobotTrajectory[] planned_trajectories\n"
+      + "# The amount of time it took to complete the motion plan\n"
+      + "float64 planning_time\n"
+      + "";
   moveit_msgs.MoveItErrorCodes getErrorCode();
   void setErrorCode(moveit_msgs.MoveItErrorCodes value);
   moveit_msgs.RobotState getSequenceStart();

@@ -72,7 +72,7 @@ public class MessageQueueIntegrationTest {
   private ExecutorService executorService;
   private TcpClientManager firstTcpClientManager;
   private TcpClientManager secondTcpClientManager;
-  private OutgoingMessageQueue<Message> outgoingMessageQueue;
+  private OutgoingMessageQueue<Object> outgoingMessageQueue;
   private IncomingMessageQueue<std_msgs.String> firstIncomingMessageQueue;
   private IncomingMessageQueue<std_msgs.String> secondIncomingMessageQueue;
   private std_msgs.String expectedMessage;
@@ -115,7 +115,7 @@ public class MessageQueueIntegrationTest {
     expectedMessage = topicMessageFactory.newFromType(std_msgs.String._TYPE);
     expectedMessage.setData("Would you like to play a game?");
     outgoingMessageQueue =
-        new OutgoingMessageQueue<Message>(new DefaultMessageSerializer(), executorService);
+        new OutgoingMessageQueue<Object>(new DefaultMessageSerializer(), executorService);
     firstIncomingMessageQueue =
         new IncomingMessageQueue<std_msgs.String>(new DefaultMessageDeserializer<std_msgs.String>(
             MessageIdentifier.of(std_msgs.String._TYPE), topicMessageFactory), executorService);

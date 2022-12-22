@@ -1,8 +1,24 @@
 package moveit_msgs;
 
-public interface PlaceLocation extends org.ros.internal.message.Message {
+public interface PlaceLocation {
   static final java.lang.String _TYPE = "moveit_msgs/PlaceLocation";
-  static final java.lang.String _DEFINITION = "# A name for this grasp\nstring id\n\n# The internal posture of the hand for the grasp\n# positions and efforts are used\ntrajectory_msgs/JointTrajectory post_place_posture\n\n# The position of the end-effector for the grasp relative to a reference frame \n# (that is always specified elsewhere, not in this message)\ngeometry_msgs/PoseStamped place_pose\n\n# The approach motion\nGripperTranslation pre_place_approach\n\n# The retreat motion\nGripperTranslation post_place_retreat\n\n# an optional list of obstacles that we have semantic information about\n# and that can be touched/pushed/moved in the course of grasping\nstring[] allowed_touch_objects\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# A name for this grasp\n"
+      + "string id\n"
+      + "# The internal posture of the hand for the grasp\n"
+      + "# positions and efforts are used\n"
+      + "trajectory_msgs/JointTrajectory post_place_posture\n"
+      + "# The position of the end-effector for the grasp relative to a reference frame \n"
+      + "# (that is always specified elsewhere, not in this message)\n"
+      + "geometry_msgs/PoseStamped place_pose\n"
+      + "# The approach motion\n"
+      + "GripperTranslation pre_place_approach\n"
+      + "# The retreat motion\n"
+      + "GripperTranslation post_place_retreat\n"
+      + "# an optional list of obstacles that we have semantic information about\n"
+      + "# and that can be touched/pushed/moved in the course of grasping\n"
+      + "string[] allowed_touch_objects\n"
+      + "";
   java.lang.String getId();
   void setId(java.lang.String value);
   trajectory_msgs.JointTrajectory getPostPlacePosture();

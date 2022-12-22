@@ -1,8 +1,11 @@
 package moveit_msgs;
 
-public interface ListRobotStatesInWarehouseRequest extends org.ros.internal.message.Message {
+public interface ListRobotStatesInWarehouseRequest {
   static final java.lang.String _TYPE = "moveit_msgs/ListRobotStatesInWarehouseRequest";
-  static final java.lang.String _DEFINITION = "string regex\nstring robot\n\n";
+  static final java.lang.String _DEFINITION = ""
+      + "string regex\n"
+      + "string robot\n"
+      + "";
   java.lang.String getRegex();
   void setRegex(java.lang.String value);
   java.lang.String getRobot();

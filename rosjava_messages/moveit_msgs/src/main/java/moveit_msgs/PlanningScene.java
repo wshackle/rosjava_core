@@ -1,8 +1,30 @@
 package moveit_msgs;
 
-public interface PlanningScene extends org.ros.internal.message.Message {
+public interface PlanningScene {
   static final java.lang.String _TYPE = "moveit_msgs/PlanningScene";
-  static final java.lang.String _DEFINITION = "# name of planning scene\nstring name\n\n# full robot state\nRobotState robot_state\n\n# The name of the robot model this scene is for\nstring robot_model_name\n\n#additional frames for duplicating tf (with respect to the planning frame)\ngeometry_msgs/TransformStamped[] fixed_frame_transforms\n\n#full allowed collision matrix\nAllowedCollisionMatrix allowed_collision_matrix\n\n# all link paddings\nLinkPadding[] link_padding\n\n# all link scales\nLinkScale[] link_scale\n\n# Attached objects, collision objects, even the octomap or collision map can have \n# colors associated to them. This array specifies them.\nObjectColor[] object_colors\n\n# the collision map\nPlanningSceneWorld world\n\n# Flag indicating whether this scene is to be interpreted as a diff with respect to some other scene\nbool is_diff\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# name of planning scene\n"
+      + "string name\n"
+      + "# full robot state\n"
+      + "RobotState robot_state\n"
+      + "# The name of the robot model this scene is for\n"
+      + "string robot_model_name\n"
+      + "#additional frames for duplicating tf (with respect to the planning frame)\n"
+      + "geometry_msgs/TransformStamped[] fixed_frame_transforms\n"
+      + "#full allowed collision matrix\n"
+      + "AllowedCollisionMatrix allowed_collision_matrix\n"
+      + "# all link paddings\n"
+      + "LinkPadding[] link_padding\n"
+      + "# all link scales\n"
+      + "LinkScale[] link_scale\n"
+      + "# Attached objects, collision objects, even the octomap or collision map can have \n"
+      + "# colors associated to them. This array specifies them.\n"
+      + "ObjectColor[] object_colors\n"
+      + "# the collision map\n"
+      + "PlanningSceneWorld world\n"
+      + "# Flag indicating whether this scene is to be interpreted as a diff with respect to some other scene\n"
+      + "bool is_diff\n"
+      + "";
   java.lang.String getName();
   void setName(java.lang.String value);
   moveit_msgs.RobotState getRobotState();

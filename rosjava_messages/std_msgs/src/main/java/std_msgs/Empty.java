@@ -1,6 +1,7 @@
 package std_msgs;
 
-public interface Empty extends org.ros.internal.message.Message {
+public interface Empty {
   static final java.lang.String _TYPE = "std_msgs/Empty";
-  static final java.lang.String _DEFINITION = "";
+  static final java.lang.String _DEFINITION = ""
+      + "";
 }

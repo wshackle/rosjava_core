@@ -1,8 +1,13 @@
 package moveit_msgs;
 
-public interface DisplayRobotState extends org.ros.internal.message.Message {
+public interface DisplayRobotState {
   static final java.lang.String _TYPE = "moveit_msgs/DisplayRobotState";
-  static final java.lang.String _DEFINITION = "# The robot state to display\nRobotState state\n\n# Optionally, various links can be highlighted\nObjectColor[] highlight_links\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# The robot state to display\n"
+      + "RobotState state\n"
+      + "# Optionally, various links can be highlighted\n"
+      + "ObjectColor[] highlight_links\n"
+      + "";
   moveit_msgs.RobotState getState();
   void setState(moveit_msgs.RobotState value);
   java.util.List<moveit_msgs.ObjectColor> getHighlightLinks();

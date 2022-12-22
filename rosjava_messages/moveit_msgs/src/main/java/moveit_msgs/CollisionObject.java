@@ -1,8 +1,37 @@
 package moveit_msgs;
 
-public interface CollisionObject extends org.ros.internal.message.Message {
+public interface CollisionObject {
   static final java.lang.String _TYPE = "moveit_msgs/CollisionObject";
-  static final java.lang.String _DEFINITION = "# A header, used for interpreting the poses\nHeader header\n\n# The id of the object (name used in MoveIt)\nstring id\n\n# The object type in a database of known objects\nobject_recognition_msgs/ObjectType type\n\n# The collision geometries associated with the object.\n# Their poses are with respect to the specified header\n\n# Solid geometric primitives\nshape_msgs/SolidPrimitive[] primitives\ngeometry_msgs/Pose[] primitive_poses\n\n# Meshes\nshape_msgs/Mesh[] meshes\ngeometry_msgs/Pose[] mesh_poses\n\n# Bounding planes (equation is specified, but the plane can be oriented using an additional pose)\nshape_msgs/Plane[] planes\ngeometry_msgs/Pose[] plane_poses\n\n# Adds the object to the planning scene. If the object previously existed, it is replaced.\nbyte ADD=0\n\n# Removes the object from the environment entirely (everything that matches the specified id)\nbyte REMOVE=1\n\n# Append to an object that already exists in the planning scene. If the object does not exist, it is added.\nbyte APPEND=2\n\n# If an object already exists in the scene, new poses can be sent (the geometry arrays must be left empty)\n# if solely moving the object is desired\nbyte MOVE=3\n\n# Operation to be performed\nbyte operation\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# A header, used for interpreting the poses\n"
+      + "Header header\n"
+      + "# The id of the object (name used in MoveIt)\n"
+      + "string id\n"
+      + "# The object type in a database of known objects\n"
+      + "object_recognition_msgs/ObjectType type\n"
+      + "# The collision geometries associated with the object.\n"
+      + "# Their poses are with respect to the specified header\n"
+      + "# Solid geometric primitives\n"
+      + "shape_msgs/SolidPrimitive[] primitives\n"
+      + "geometry_msgs/Pose[] primitive_poses\n"
+      + "# Meshes\n"
+      + "shape_msgs/Mesh[] meshes\n"
+      + "geometry_msgs/Pose[] mesh_poses\n"
+      + "# Bounding planes (equation is specified, but the plane can be oriented using an additional pose)\n"
+      + "shape_msgs/Plane[] planes\n"
+      + "geometry_msgs/Pose[] plane_poses\n"
+      + "# Adds the object to the planning scene. If the object previously existed, it is replaced.\n"
+      + "byte ADD=0\n"
+      + "# Removes the object from the environment entirely (everything that matches the specified id)\n"
+      + "byte REMOVE=1\n"
+      + "# Append to an object that already exists in the planning scene. If the object does not exist, it is added.\n"
+      + "byte APPEND=2\n"
+      + "# If an object already exists in the scene, new poses can be sent (the geometry arrays must be left empty)\n"
+      + "# if solely moving the object is desired\n"
+      + "byte MOVE=3\n"
+      + "# Operation to be performed\n"
+      + "byte operation\n"
+      + "";
   static final byte ADD = 0;
   static final byte REMOVE = 1;
   static final byte APPEND = 2;

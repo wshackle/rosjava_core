@@ -33,14 +33,14 @@ public class MessageFieldType implements FieldType {
 
   private final MessageIdentifier messageIdentifier;
   private final MessageFactory messageFactory;
-  private final MessageSerializer<Message> serializer;
-  private final MessageDeserializer<Message> deserializer;
+  private final MessageSerializer<Object> serializer;
+  private final MessageDeserializer<Object> deserializer;
 
   public MessageFieldType(MessageIdentifier messageIdentifier, MessageFactory messageFactory) {
     this.messageIdentifier = messageIdentifier;
     this.messageFactory = messageFactory;
     serializer = new DefaultMessageSerializer();
-    deserializer = new DefaultMessageDeserializer<Message>(messageIdentifier, messageFactory);
+    deserializer = new DefaultMessageDeserializer<Object>(messageIdentifier, messageFactory);
   }
 
   public MessageFactory getMessageFactory() {
@@ -95,7 +95,7 @@ public class MessageFieldType implements FieldType {
   @SuppressWarnings("unchecked")
   @Override
   public Message deserialize(ChannelBuffer buffer) {
-    return deserializer.deserialize(buffer);
+    return (Message) deserializer.deserialize(buffer);
   }
 
   @SuppressWarnings("unchecked")

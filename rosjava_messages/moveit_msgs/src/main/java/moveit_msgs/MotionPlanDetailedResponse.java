@@ -1,8 +1,23 @@
 package moveit_msgs;
 
-public interface MotionPlanDetailedResponse extends org.ros.internal.message.Message {
+public interface MotionPlanDetailedResponse {
   static final java.lang.String _TYPE = "moveit_msgs/MotionPlanDetailedResponse";
-  static final java.lang.String _DEFINITION = "# The representation of a solution to a planning problem, including intermediate data\n\n# The starting state considered for the robot solution path\nRobotState trajectory_start\n\n# The group used for planning (usually the same as in the request)\nstring group_name\n\n# Multiple solution paths are reported, each reflecting intermediate steps in the trajectory processing\n\n# The list of reported trajectories\nRobotTrajectory[] trajectory\n\n# Description of the reported trajectories (name of processing step)\nstring[] description\n\n# The amount of time spent computing a particular step in motion plan computation \nfloat64[] processing_time\n\n# Status at the end of this plan\nMoveItErrorCodes error_code\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# The representation of a solution to a planning problem, including intermediate data\n"
+      + "# The starting state considered for the robot solution path\n"
+      + "RobotState trajectory_start\n"
+      + "# The group used for planning (usually the same as in the request)\n"
+      + "string group_name\n"
+      + "# Multiple solution paths are reported, each reflecting intermediate steps in the trajectory processing\n"
+      + "# The list of reported trajectories\n"
+      + "RobotTrajectory[] trajectory\n"
+      + "# Description of the reported trajectories (name of processing step)\n"
+      + "string[] description\n"
+      + "# The amount of time spent computing a particular step in motion plan computation \n"
+      + "float64[] processing_time\n"
+      + "# Status at the end of this plan\n"
+      + "MoveItErrorCodes error_code\n"
+      + "";
   moveit_msgs.RobotState getTrajectoryStart();
   void setTrajectoryStart(moveit_msgs.RobotState value);
   java.lang.String getGroupName();

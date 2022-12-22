@@ -1,8 +1,13 @@
 package moveit_msgs;
 
-public interface LinkPadding extends org.ros.internal.message.Message {
+public interface LinkPadding {
   static final java.lang.String _TYPE = "moveit_msgs/LinkPadding";
-  static final java.lang.String _DEFINITION = "#name for the link\nstring link_name\n\n# padding to apply to the link\nfloat64 padding\n";
+  static final java.lang.String _DEFINITION = ""
+      + "#name for the link\n"
+      + "string link_name\n"
+      + "# padding to apply to the link\n"
+      + "float64 padding\n"
+      + "";
   java.lang.String getLinkName();
   void setLinkName(java.lang.String value);
   double getPadding();

@@ -72,7 +72,7 @@ public class MessageProxyFactory {
   @SuppressWarnings("unchecked")
   private <T> T newProxy(Class<T> interfaceClass, final MessageImpl messageImpl) {
     ClassLoader classLoader = messageImpl.getClass().getClassLoader();
-    Class<?>[] interfaces = new Class<?>[] { interfaceClass, GetInstance.class };
+    Class<?>[] interfaces = new Class<?>[] { interfaceClass, Message.class,  GetInstance.class };
     MessageProxyInvocationHandler invocationHandler =
         new MessageProxyInvocationHandler(messageImpl);
     return (T) Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);

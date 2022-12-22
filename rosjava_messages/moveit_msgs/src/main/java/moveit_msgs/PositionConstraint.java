@@ -1,8 +1,19 @@
 package moveit_msgs;
 
-public interface PositionConstraint extends org.ros.internal.message.Message {
+public interface PositionConstraint {
   static final java.lang.String _TYPE = "moveit_msgs/PositionConstraint";
-  static final java.lang.String _DEFINITION = "# This message contains the definition of a position constraint.\n\nHeader header\n\n# The robot link this constraint refers to\nstring link_name\n\n# The offset (in the link frame) for the target point on the link we are planning for\ngeometry_msgs/Vector3 target_point_offset\n\n# The volume this constraint refers to \nBoundingVolume constraint_region\n\n# A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important)\nfloat64 weight\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# This message contains the definition of a position constraint.\n"
+      + "Header header\n"
+      + "# The robot link this constraint refers to\n"
+      + "string link_name\n"
+      + "# The offset (in the link frame) for the target point on the link we are planning for\n"
+      + "geometry_msgs/Vector3 target_point_offset\n"
+      + "# The volume this constraint refers to \n"
+      + "BoundingVolume constraint_region\n"
+      + "# A weighting factor for this constraint (denotes relative importance to other constraints. Closer to zero means less important)\n"
+      + "float64 weight\n"
+      + "";
   std_msgs.Header getHeader();
   void setHeader(std_msgs.Header value);
   java.lang.String getLinkName();

@@ -1,6 +1,10 @@
 package moveit_msgs;
 
-public interface LoadMap extends org.ros.internal.message.Message {
+public interface LoadMap {
   static final java.lang.String _TYPE = "moveit_msgs/LoadMap";
-  static final java.lang.String _DEFINITION = "string filename\n---\nbool success";
+  static final java.lang.String _DEFINITION = ""
+      + "string filename\n"
+      + "---\n"
+      + "bool success\n"
+      + "";
 }

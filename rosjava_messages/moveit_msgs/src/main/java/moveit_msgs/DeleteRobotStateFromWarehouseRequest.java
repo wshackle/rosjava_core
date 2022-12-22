@@ -1,8 +1,11 @@
 package moveit_msgs;
 
-public interface DeleteRobotStateFromWarehouseRequest extends org.ros.internal.message.Message {
+public interface DeleteRobotStateFromWarehouseRequest {
   static final java.lang.String _TYPE = "moveit_msgs/DeleteRobotStateFromWarehouseRequest";
-  static final java.lang.String _DEFINITION = "string name\nstring robot\n\n";
+  static final java.lang.String _DEFINITION = ""
+      + "string name\n"
+      + "string robot\n"
+      + "";
   java.lang.String getName();
   void setName(java.lang.String value);
   java.lang.String getRobot();

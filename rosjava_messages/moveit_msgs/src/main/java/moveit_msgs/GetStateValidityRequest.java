@@ -1,8 +1,12 @@
 package moveit_msgs;
 
-public interface GetStateValidityRequest extends org.ros.internal.message.Message {
+public interface GetStateValidityRequest {
   static final java.lang.String _TYPE = "moveit_msgs/GetStateValidityRequest";
-  static final java.lang.String _DEFINITION = "RobotState robot_state\nstring group_name\nConstraints constraints\n\n";
+  static final java.lang.String _DEFINITION = ""
+      + "RobotState robot_state\n"
+      + "string group_name\n"
+      + "Constraints constraints\n"
+      + "";
   moveit_msgs.RobotState getRobotState();
   void setRobotState(moveit_msgs.RobotState value);
   java.lang.String getGroupName();

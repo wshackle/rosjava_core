@@ -1,8 +1,12 @@
 package moveit_msgs;
 
-public interface RenameRobotStateInWarehouseRequest extends org.ros.internal.message.Message {
+public interface RenameRobotStateInWarehouseRequest {
   static final java.lang.String _TYPE = "moveit_msgs/RenameRobotStateInWarehouseRequest";
-  static final java.lang.String _DEFINITION = "string old_name\nstring new_name\nstring robot\n";
+  static final java.lang.String _DEFINITION = ""
+      + "string old_name\n"
+      + "string new_name\n"
+      + "string robot\n"
+      + "";
   java.lang.String getOldName();
   void setOldName(java.lang.String value);
   java.lang.String getNewName();

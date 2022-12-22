@@ -1,8 +1,12 @@
 package moveit_msgs;
 
-public interface SaveRobotStateToWarehouseRequest extends org.ros.internal.message.Message {
+public interface SaveRobotStateToWarehouseRequest {
   static final java.lang.String _TYPE = "moveit_msgs/SaveRobotStateToWarehouseRequest";
-  static final java.lang.String _DEFINITION = "string name\nstring robot\nmoveit_msgs/RobotState state\n\n";
+  static final java.lang.String _DEFINITION = ""
+      + "string name\n"
+      + "string robot\n"
+      + "moveit_msgs/RobotState state\n"
+      + "";
   java.lang.String getName();
   void setName(java.lang.String value);
   java.lang.String getRobot();

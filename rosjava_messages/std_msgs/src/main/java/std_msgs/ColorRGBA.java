@@ -1,8 +1,13 @@
 package std_msgs;
 
-public interface ColorRGBA extends org.ros.internal.message.Message {
+public interface ColorRGBA {
   static final java.lang.String _TYPE = "std_msgs/ColorRGBA";
-  static final java.lang.String _DEFINITION = "float32 r\nfloat32 g\nfloat32 b\nfloat32 a\n";
+  static final java.lang.String _DEFINITION = ""
+      + "float32 r\n"
+      + "float32 g\n"
+      + "float32 b\n"
+      + "float32 a\n"
+      + "";
   float getR();
   void setR(float value);
   float getG();

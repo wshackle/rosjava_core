@@ -1,8 +1,30 @@
 package moveit_msgs;
 
-public interface ContactInformation extends org.ros.internal.message.Message {
+public interface ContactInformation {
   static final java.lang.String _TYPE = "moveit_msgs/ContactInformation";
-  static final java.lang.String _DEFINITION = "# Standard ROS header contains information \n# about the frame in which this \n# contact is specified\nHeader header\n\n# Position of the contact point\ngeometry_msgs/Point position\n\n# Normal corresponding to the contact point\ngeometry_msgs/Vector3 normal \n\n# Depth of contact point\nfloat64 depth\n\n# Name of the first body that is in contact\n# This could be a link or a namespace that represents a body\nstring contact_body_1\nuint32 body_type_1\n\n# Name of the second body that is in contact\n# This could be a link or a namespace that represents a body\nstring contact_body_2\nuint32 body_type_2\n\nuint32 ROBOT_LINK=0\nuint32 WORLD_OBJECT=1\nuint32 ROBOT_ATTACHED=2\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# Standard ROS header contains information \n"
+      + "# about the frame in which this \n"
+      + "# contact is specified\n"
+      + "Header header\n"
+      + "# Position of the contact point\n"
+      + "geometry_msgs/Point position\n"
+      + "# Normal corresponding to the contact point\n"
+      + "geometry_msgs/Vector3 normal \n"
+      + "# Depth of contact point\n"
+      + "float64 depth\n"
+      + "# Name of the first body that is in contact\n"
+      + "# This could be a link or a namespace that represents a body\n"
+      + "string contact_body_1\n"
+      + "uint32 body_type_1\n"
+      + "# Name of the second body that is in contact\n"
+      + "# This could be a link or a namespace that represents a body\n"
+      + "string contact_body_2\n"
+      + "uint32 body_type_2\n"
+      + "uint32 ROBOT_LINK=0\n"
+      + "uint32 WORLD_OBJECT=1\n"
+      + "uint32 ROBOT_ATTACHED=2\n"
+      + "";
   static final int ROBOT_LINK = 0;
   static final int WORLD_OBJECT = 1;
   static final int ROBOT_ATTACHED = 2;

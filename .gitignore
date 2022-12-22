@@ -35,3 +35,4 @@ local.properties
 /rosjava_messages/rosjava_test_msgs/target/
 /rosjava_core/target/
 /rosjava_messages/industrial_msgs/target/
+/MoveItClientExample/target/

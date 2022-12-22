@@ -1,8 +1,38 @@
 package moveit_msgs;
 
-public interface MoveItErrorCodes extends org.ros.internal.message.Message {
+public interface MoveItErrorCodes {
   static final java.lang.String _TYPE = "moveit_msgs/MoveItErrorCodes";
-  static final java.lang.String _DEFINITION = "int32 val\n\n# overall behavior\nint32 SUCCESS=1\nint32 FAILURE=99999\n\nint32 PLANNING_FAILED=-1\nint32 INVALID_MOTION_PLAN=-2\nint32 MOTION_PLAN_INVALIDATED_BY_ENVIRONMENT_CHANGE=-3\nint32 CONTROL_FAILED=-4\nint32 UNABLE_TO_AQUIRE_SENSOR_DATA=-5\nint32 TIMED_OUT=-6\nint32 PREEMPTED=-7\n\n# planning & kinematics request errors\nint32 START_STATE_IN_COLLISION=-10\nint32 START_STATE_VIOLATES_PATH_CONSTRAINTS=-11\n\nint32 GOAL_IN_COLLISION=-12\nint32 GOAL_VIOLATES_PATH_CONSTRAINTS=-13\nint32 GOAL_CONSTRAINTS_VIOLATED=-14\n\nint32 INVALID_GROUP_NAME=-15\nint32 INVALID_GOAL_CONSTRAINTS=-16\nint32 INVALID_ROBOT_STATE=-17\nint32 INVALID_LINK_NAME=-18\nint32 INVALID_OBJECT_NAME=-19\n\n# system errors\nint32 FRAME_TRANSFORM_FAILURE=-21\nint32 COLLISION_CHECKING_UNAVAILABLE=-22\nint32 ROBOT_STATE_STALE=-23\nint32 SENSOR_INFO_STALE=-24\n\n# kinematics errors\nint32 NO_IK_SOLUTION=-31\n";
+  static final java.lang.String _DEFINITION = ""
+      + "int32 val\n"
+      + "# overall behavior\n"
+      + "int32 SUCCESS=1\n"
+      + "int32 FAILURE=99999\n"
+      + "int32 PLANNING_FAILED=-1\n"
+      + "int32 INVALID_MOTION_PLAN=-2\n"
+      + "int32 MOTION_PLAN_INVALIDATED_BY_ENVIRONMENT_CHANGE=-3\n"
+      + "int32 CONTROL_FAILED=-4\n"
+      + "int32 UNABLE_TO_AQUIRE_SENSOR_DATA=-5\n"
+      + "int32 TIMED_OUT=-6\n"
+      + "int32 PREEMPTED=-7\n"
+      + "# planning & kinematics request errors\n"
+      + "int32 START_STATE_IN_COLLISION=-10\n"
+      + "int32 START_STATE_VIOLATES_PATH_CONSTRAINTS=-11\n"
+      + "int32 GOAL_IN_COLLISION=-12\n"
+      + "int32 GOAL_VIOLATES_PATH_CONSTRAINTS=-13\n"
+      + "int32 GOAL_CONSTRAINTS_VIOLATED=-14\n"
+      + "int32 INVALID_GROUP_NAME=-15\n"
+      + "int32 INVALID_GOAL_CONSTRAINTS=-16\n"
+      + "int32 INVALID_ROBOT_STATE=-17\n"
+      + "int32 INVALID_LINK_NAME=-18\n"
+      + "int32 INVALID_OBJECT_NAME=-19\n"
+      + "# system errors\n"
+      + "int32 FRAME_TRANSFORM_FAILURE=-21\n"
+      + "int32 COLLISION_CHECKING_UNAVAILABLE=-22\n"
+      + "int32 ROBOT_STATE_STALE=-23\n"
+      + "int32 SENSOR_INFO_STALE=-24\n"
+      + "# kinematics errors\n"
+      + "int32 NO_IK_SOLUTION=-31\n"
+      + "";
   static final int SUCCESS = 1;
   static final int FAILURE = 99999;
   static final int PLANNING_FAILED = -1;

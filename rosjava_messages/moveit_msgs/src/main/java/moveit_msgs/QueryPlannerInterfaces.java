@@ -1,6 +1,10 @@
 package moveit_msgs;
 
-public interface QueryPlannerInterfaces extends org.ros.internal.message.Message {
+public interface QueryPlannerInterfaces {
   static final java.lang.String _TYPE = "moveit_msgs/QueryPlannerInterfaces";
-  static final java.lang.String _DEFINITION = "\n---\n\n# The planning instances that could be used in the benchmark\nPlannerInterfaceDescription[] planner_interfaces\n";
+  static final java.lang.String _DEFINITION = ""
+      + "---\n"
+      + "# The planning instances that could be used in the benchmark\n"
+      + "PlannerInterfaceDescription[] planner_interfaces\n"
+      + "";
 }

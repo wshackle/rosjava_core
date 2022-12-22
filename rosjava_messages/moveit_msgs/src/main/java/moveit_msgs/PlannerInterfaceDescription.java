@@ -1,8 +1,13 @@
 package moveit_msgs;
 
-public interface PlannerInterfaceDescription extends org.ros.internal.message.Message {
+public interface PlannerInterfaceDescription {
   static final java.lang.String _TYPE = "moveit_msgs/PlannerInterfaceDescription";
-  static final java.lang.String _DEFINITION = "# The name of the planner interface\nstring name\n\n# The names of the planner ids within the interface\nstring[] planner_ids\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# The name of the planner interface\n"
+      + "string name\n"
+      + "# The names of the planner ids within the interface\n"
+      + "string[] planner_ids\n"
+      + "";
   java.lang.String getName();
   void setName(java.lang.String value);
   java.util.List<java.lang.String> getPlannerIds();

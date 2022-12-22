@@ -1,8 +1,13 @@
 package moveit_msgs;
 
-public interface GetStateValidityResponse extends org.ros.internal.message.Message {
+public interface GetStateValidityResponse {
   static final java.lang.String _TYPE = "moveit_msgs/GetStateValidityResponse";
-  static final java.lang.String _DEFINITION = "\nbool valid\nContactInformation[] contacts\nCostSource[] cost_sources\nConstraintEvalResult[] constraint_result";
+  static final java.lang.String _DEFINITION = ""
+      + "bool valid\n"
+      + "ContactInformation[] contacts\n"
+      + "CostSource[] cost_sources\n"
+      + "ConstraintEvalResult[] constraint_result\n"
+      + "";
   boolean getValid();
   void setValid(boolean value);
   java.util.List<moveit_msgs.ContactInformation> getContacts();

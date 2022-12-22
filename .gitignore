@@ -9,6 +9,7 @@ bin
 *.iml
 .idea
 bazel-*
+target
 local.properties
 /rosjava/target/
 /apache_xmlrpc_common/target/

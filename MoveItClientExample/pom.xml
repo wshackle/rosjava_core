@@ -16,9 +16,7 @@
     <profiles>
         <profile>
             <id>multirepo</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+            
             <repositories>
                 <repository>
                     <id>nuxeo</id>
@@ -63,6 +61,9 @@
         </profile>
         <profile>
             <id>onlycentralrepo</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <dependencies>
                 <dependency>
                     <groupId>com.github.wshackle</groupId>

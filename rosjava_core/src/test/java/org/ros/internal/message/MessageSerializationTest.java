@@ -68,12 +68,12 @@ public class MessageSerializationTest {
     serializer = new DefaultMessageSerializer();
   }
 
-  private <T extends Message> void checkSerializeAndDeserialize(T message) {
+  private <T /* extends Message */> void checkSerializeAndDeserialize(T message) {
     ChannelBuffer buffer = MessageBuffers.dynamicBuffer();
     serializer.serialize(message, buffer);
     dumpBuffer(buffer);
     DefaultMessageDeserializer<T> deserializer =
-        new DefaultMessageDeserializer<T>(message.toRawMessage().getIdentifier(),
+        new DefaultMessageDeserializer<T>(((Message) message).toRawMessage().getIdentifier(),
             defaultMessageFactory);
     assertEquals(message, deserializer.deserialize(buffer));
   }

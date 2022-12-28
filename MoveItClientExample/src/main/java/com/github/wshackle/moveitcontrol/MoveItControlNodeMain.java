@@ -4,7 +4,6 @@
  */
 package com.github.wshackle.moveitcontrol;
 
-import actionlib_msgs.GoalID;
 import static com.github.wshackle.moveitcontrol.MoveItControlJFrame.startMoveItControlJFrame;
 import geometry_msgs.Pose;
 import geometry_msgs.PoseStamped;
@@ -186,8 +185,8 @@ public class MoveItControlNodeMain extends AbstractNodeMain {
 
     public void gotoJointPositions(final double[] goalJointPositions, final List<String> goalJointNames) {
         final MoveGroupActionGoal moveGoal = moveRequestPublisher.newMessage();
-        final GoalID goalId = moveGoal.getGoalId();
-        goalId.setId(MoveItControlNodeMain.class.getCanonicalName() + System.currentTimeMillis());
+//        final GoalID goalId = moveGoal.getGoalId();
+//        goalId.setId(MoveItControlNodeMain.class.getCanonicalName() + System.currentTimeMillis());
         final MotionPlanRequest moveRequest = moveGoal.getGoal().getRequest();
         final WorkspaceParameters workspaceParameters = moveRequest.getWorkspaceParameters();
         final Vector3 maxCorner = workspaceParameters.getMaxCorner();

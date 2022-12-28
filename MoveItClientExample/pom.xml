@@ -19,43 +19,63 @@
             
             <repositories>
                 <repository>
-                    <id>nuxeo</id>
-                    <name>nuxeo</name>
-                    <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public/</url>
-                </repository>
-                <repository>
                     <id>rosjava-github-maven-repo</id>
                     <name>RosJava Github Maven Repo</name>
                     <url>https://github.com/rosjava/rosjava_mvn_repo/raw/master</url>
                 </repository>
+                <repository>
+                    <id>nuxeo</id>
+                    <name>nuxeo</name>
+                    <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public/</url>
+                </repository>
+                
             </repositories>
             <dependencies>
-                <dependency>
-                    <groupId>org.ros.rosjava_core</groupId>
-                    <artifactId>rosjava</artifactId>
-                    <version>0.3.6</version>
-                </dependency>
-                
-                <dependency>
-                    <groupId>org.ros.rosjava_messages</groupId>
-                    <artifactId>std_msgs</artifactId>
-                    <version>0.5.11</version>
-                </dependency>
                 
                 <dependency>
                     <groupId>org.ros.rosjava_messages</groupId>
                     <artifactId>moveit_msgs</artifactId>
-                    <version>0.6.1</version>
+                    <version>0.5.3</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.ros.rosjava_messages</groupId>
+                    <artifactId>octomap_msgs</artifactId>
+                    <version>0.3.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.ros.rosjava_messages</groupId>
+                    <artifactId>actionlib_msgs</artifactId>
+                    <version>1.10.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.ros.rosjava_messages</groupId>
+                    <artifactId>trajectory_msgs</artifactId>
+                    <version>1.10.2</version>
                 </dependency>
                 <dependency>
                     <groupId>org.ros.rosjava_messages</groupId>
                     <artifactId>sensor_msgs</artifactId>
-                    <version>1.12.7</version>
+                    <version>1.10.2</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.ros.rosjava_messages</groupId>
+                    <artifactId>std_msgs</artifactId>
+                    <version>0.5.8</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.ros.rosjava_messages</groupId>
+                    <artifactId>geometry_msgs</artifactId>
+                    <version>1.10.2</version>
                 </dependency>
                 <dependency>
                     <groupId>org.ros.rosjava_bootstrap</groupId>
                     <artifactId>message_generation</artifactId>
-                    <version>0.3.3</version>
+                    <version>0.1.22</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.ros.rosjava_core</groupId>
+                    <artifactId>rosjava</artifactId>
+                    <version>0.1.6</version>
                 </dependency>
             </dependencies>
         </profile>

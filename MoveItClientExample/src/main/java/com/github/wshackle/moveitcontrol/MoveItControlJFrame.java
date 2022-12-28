@@ -145,6 +145,7 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
         jMenuItemMoveToJointPositions = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Java MoveIt  1/ ROS 1 Client");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Current"));
 

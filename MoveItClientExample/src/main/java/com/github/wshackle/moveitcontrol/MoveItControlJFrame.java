@@ -24,18 +24,12 @@ package com.github.wshackle.moveitcontrol;
 
 import geometry_msgs.Point;
 import geometry_msgs.Pose;
-import geometry_msgs.PoseStamped;
 import geometry_msgs.Quaternion;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import moveit_msgs.GetPositionFKRequest;
-import moveit_msgs.GetPositionFKResponse;
-import org.ros.exception.RemoteException;
-import org.ros.node.service.ServiceResponseListener;
 import sensor_msgs.JointState;
 
 /**

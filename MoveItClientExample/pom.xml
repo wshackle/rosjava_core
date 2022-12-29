@@ -13,10 +13,32 @@
             <version>1.1.1</version>
         </dependency>
     </dependencies>
+    
+    <!--
+    One should select one and only one of the two profiles:
+
+        use_rosjava_github_repo
+            pulls rosjava artifacts from the github repo
+            used by rosjava. Unfortunately it contains only a very old version of
+            moveit_msgs. It is also missing some dependencies that means it requires nuxeo repo.
+            This currently compiles and correctly displays the current position but fails to send goals.
+        
+        use_locally_installed_rosjava_artifacts
+            explects the rosjava artifacts to already be installed in your local repository and expects they
+            were installed by cloing the wshackle fork of rosjava at https://github.com/wshackle/rosjava_core
+            and running mvn install from the top-level directory.
+        
+        Both were tested against the puma simulated robot in the MoveIt tutorial for the ROS 1 Melodic / MoveIt 1 at
+            http://docs.ros.org/en/melodic/api/moveit_tutorials/html/index.html on Ubuntu 18.04.6 LTS (aka bionic).
+     
+       
+        Optinally enable the jar_with_depends profile to build a single jar to be easy to run without maven or an IDE 
+        to get the classpath write has to be added with one of the others such as 
+            mvn package -Puse_locally_installed_rosjava_artifacts -Pjar-with-depends
+    -->
     <profiles>
         <profile>
-            <id>multirepo</id>
-            
+            <id>use_rosjava_github_repo</id>
             <repositories>
                 <repository>
                     <id>rosjava-github-maven-repo</id>
@@ -28,10 +50,8 @@
                     <name>nuxeo</name>
                     <url>https://maven-eu.nuxeo.org/nexus/content/repositories/public/</url>
                 </repository>
-                
             </repositories>
             <dependencies>
-                
                 <dependency>
                     <groupId>org.ros.rosjava_messages</groupId>
                     <artifactId>moveit_msgs</artifactId>
@@ -80,7 +100,7 @@
             </dependencies>
         </profile>
         <profile>
-            <id>onlycentralrepo</id>
+            <id>use_locally_installed_rosjava_artifacts</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -112,13 +132,46 @@
                 </dependency>
             </dependencies>
         </profile>
+        
+        <profile>
+            <id>jar-with-depends</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>3.1.1</version>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>${exec.mainClass}</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                                <phase>package</phase> <!-- bind to the packaging phase -->
+                                <goals>
+                                    <goal>single</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <exec.mainClass>com.github.wshackle.moveitcontrol.Moveitcontrol</exec.mainClass>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <exec.mainClass>com.github.wshackle.moveitcontrol.MoveItControlNodeMain</exec.mainClass>
+        <exec.executable>java</exec.executable>
+        <exec.args>-classpath %classpath ${exec.mainClass}</exec.args>
     </properties>
     <name>MoveItClientExample</name>
 </project>

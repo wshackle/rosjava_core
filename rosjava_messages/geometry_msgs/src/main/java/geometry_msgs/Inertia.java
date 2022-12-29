@@ -1,8 +1,23 @@
 package geometry_msgs;
 
-public interface Inertia extends org.ros.internal.message.Message {
+public interface Inertia {
   static final java.lang.String _TYPE = "geometry_msgs/Inertia";
-  static final java.lang.String _DEFINITION = "# Mass [kg]\nfloat64 m\n\n# Center of mass [m]\ngeometry_msgs/Vector3 com\n\n# Inertia Tensor [kg-m^2]\n#     | ixx ixy ixz |\n# I = | ixy iyy iyz |\n#     | ixz iyz izz |\nfloat64 ixx\nfloat64 ixy\nfloat64 ixz\nfloat64 iyy\nfloat64 iyz\nfloat64 izz\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# Mass [kg]\n"
+      + "float64 m\n"
+      + "# Center of mass [m]\n"
+      + "geometry_msgs/Vector3 com\n"
+      + "# Inertia Tensor [kg-m^2]\n"
+      + "#     | ixx ixy ixz |\n"
+      + "# I = | ixy iyy iyz |\n"
+      + "#     | ixz iyz izz |\n"
+      + "float64 ixx\n"
+      + "float64 ixy\n"
+      + "float64 ixz\n"
+      + "float64 iyy\n"
+      + "float64 iyz\n"
+      + "float64 izz\n"
+      + "";
   double getM();
   void setM(double value);
   geometry_msgs.Vector3 getCom();

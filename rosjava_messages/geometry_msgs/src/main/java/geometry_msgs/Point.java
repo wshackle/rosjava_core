@@ -1,8 +1,13 @@
 package geometry_msgs;
 
-public interface Point extends org.ros.internal.message.Message {
+public interface Point {
   static final java.lang.String _TYPE = "geometry_msgs/Point";
-  static final java.lang.String _DEFINITION = "# This contains the position of a point in free space\nfloat64 x\nfloat64 y\nfloat64 z\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# This contains the position of a point in free space\n"
+      + "float64 x\n"
+      + "float64 y\n"
+      + "float64 z\n"
+      + "";
   double getX();
   void setX(double value);
   double getY();

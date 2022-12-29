@@ -1,8 +1,12 @@
 package geometry_msgs;
 
-public interface WrenchStamped extends org.ros.internal.message.Message {
+public interface WrenchStamped {
   static final java.lang.String _TYPE = "geometry_msgs/WrenchStamped";
-  static final java.lang.String _DEFINITION = "# A wrench with reference coordinate frame and timestamp\nHeader header\nWrench wrench\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# A wrench with reference coordinate frame and timestamp\n"
+      + "Header header\n"
+      + "Wrench wrench\n"
+      + "";
   std_msgs.Header getHeader();
   void setHeader(std_msgs.Header value);
   geometry_msgs.Wrench getWrench();

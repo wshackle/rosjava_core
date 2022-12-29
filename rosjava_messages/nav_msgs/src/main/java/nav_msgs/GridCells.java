@@ -1,8 +1,14 @@
 package nav_msgs;
 
-public interface GridCells extends org.ros.internal.message.Message {
+public interface GridCells {
   static final java.lang.String _TYPE = "nav_msgs/GridCells";
-  static final java.lang.String _DEFINITION = "#an array of cells in a 2D grid\nHeader header\nfloat32 cell_width\nfloat32 cell_height\ngeometry_msgs/Point[] cells\n";
+  static final java.lang.String _DEFINITION = ""
+      + "#an array of cells in a 2D grid\n"
+      + "Header header\n"
+      + "float32 cell_width\n"
+      + "float32 cell_height\n"
+      + "geometry_msgs/Point[] cells\n"
+      + "";
   std_msgs.Header getHeader();
   void setHeader(std_msgs.Header value);
   float getCellWidth();

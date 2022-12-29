@@ -1,8 +1,16 @@
 package trajectory_msgs;
 
-public interface MultiDOFJointTrajectoryPoint extends org.ros.internal.message.Message {
+public interface MultiDOFJointTrajectoryPoint {
   static final java.lang.String _TYPE = "trajectory_msgs/MultiDOFJointTrajectoryPoint";
-  static final java.lang.String _DEFINITION = "# Each multi-dof joint can specify a transform (up to 6 DOF)\ngeometry_msgs/Transform[] transforms\n\n# There can be a velocity specified for the origin of the joint \ngeometry_msgs/Twist[] velocities\n\n# There can be an acceleration specified for the origin of the joint \ngeometry_msgs/Twist[] accelerations\n\nduration time_from_start\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# Each multi-dof joint can specify a transform (up to 6 DOF)\n"
+      + "geometry_msgs/Transform[] transforms\n"
+      + "# There can be a velocity specified for the origin of the joint \n"
+      + "geometry_msgs/Twist[] velocities\n"
+      + "# There can be an acceleration specified for the origin of the joint \n"
+      + "geometry_msgs/Twist[] accelerations\n"
+      + "duration time_from_start\n"
+      + "";
   java.util.List<geometry_msgs.Transform> getTransforms();
   void setTransforms(java.util.List<geometry_msgs.Transform> value);
   java.util.List<geometry_msgs.Twist> getVelocities();

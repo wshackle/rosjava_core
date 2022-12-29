@@ -14,13 +14,18 @@ cat > rosjava_messages/$1/pom.xml << END
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.wshackle</groupId>
+    <parent>
+        <groupId>com.github.wshackle</groupId>
+        <artifactId>rosjava_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    
 END
   
 echo  "    <artifactId>rosjava_messages.$1</artifactId>" >> rosjava_messages/$1/pom.xml
 
 cat >> rosjava_messages/$1/pom.xml << END
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
@@ -50,11 +55,6 @@ cat >> rosjava_messages/$1/pom.xml << END
 
     </dependencies>
  
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
 </project>
 
 END
@@ -70,8 +70,42 @@ done
 ( cd rosjava_messages/$1 ; mvn install ; cd ../.. )
 
 
+if test ! -f rosjava_messages/pom.xml ;  then
+    (
+        cd rosjava_messages;
+
+        cat >pom.xml << END
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.github.wshackle</groupId>
+        <artifactId>rosjava_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    
+    <artifactId>rosjava_messages</artifactId>
+    
+    <packaging>pom</packaging>
+    <modules>
+END
 
 
+        for dir in *_msgs ; do
+            echo "    <module>${dir}</module>" >> pom.xml
+        done
 
+        cat >>pom.xml << END
+
+    </modules>
+    
+</project>
+
+END
+     )
+
+fi
 
 

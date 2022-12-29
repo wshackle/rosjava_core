@@ -1,8 +1,14 @@
 package geometry_msgs;
 
-public interface Quaternion extends org.ros.internal.message.Message {
+public interface Quaternion {
   static final java.lang.String _TYPE = "geometry_msgs/Quaternion";
-  static final java.lang.String _DEFINITION = "# This represents an orientation in free space in quaternion form.\n\nfloat64 x\nfloat64 y\nfloat64 z\nfloat64 w\n";
+  static final java.lang.String _DEFINITION = ""
+      + "# This represents an orientation in free space in quaternion form.\n"
+      + "float64 x\n"
+      + "float64 y\n"
+      + "float64 z\n"
+      + "float64 w\n"
+      + "";
   double getX();
   void setX(double value);
   double getY();

@@ -1,8 +1,28 @@
 package rosgraph_msgs;
 
-public interface Log extends org.ros.internal.message.Message {
+public interface Log {
   static final java.lang.String _TYPE = "rosgraph_msgs/Log";
-  static final java.lang.String _DEFINITION = "##\n## Severity level constants\n##\nbyte DEBUG=1 #debug level\nbyte INFO=2  #general level\nbyte WARN=4  #warning level\nbyte ERROR=8 #error level\nbyte FATAL=16 #fatal/critical level\n##\n## Fields\n##\nHeader header\nbyte level\nstring name # name of the node\nstring msg # message \nstring file # file the message came from\nstring function # function the message came from\nuint32 line # line the message came from\nstring[] topics # topic names that the node publishes\n";
+  static final java.lang.String _DEFINITION = ""
+      + "##\n"
+      + "## Severity level constants\n"
+      + "##\n"
+      + "byte DEBUG=1 #debug level\n"
+      + "byte INFO=2  #general level\n"
+      + "byte WARN=4  #warning level\n"
+      + "byte ERROR=8 #error level\n"
+      + "byte FATAL=16 #fatal/critical level\n"
+      + "##\n"
+      + "## Fields\n"
+      + "##\n"
+      + "Header header\n"
+      + "byte level\n"
+      + "string name # name of the node\n"
+      + "string msg # message \n"
+      + "string file # file the message came from\n"
+      + "string function # function the message came from\n"
+      + "uint32 line # line the message came from\n"
+      + "string[] topics # topic names that the node publishes\n"
+      + "";
   static final byte DEBUG = 1;
   static final byte INFO = 2;
   static final byte WARN = 4;

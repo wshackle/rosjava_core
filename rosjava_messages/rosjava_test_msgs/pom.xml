@@ -4,11 +4,11 @@
     
     <parent>
         <groupId>com.github.wshackle</groupId>
-        <artifactId>rosjava_messages</artifactId>
+        <artifactId>rosjava_parent</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
-
-   
+    
     <artifactId>rosjava_messages.rosjava_test_msgs</artifactId>
    
     <packaging>jar</packaging>

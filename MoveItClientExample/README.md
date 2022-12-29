@@ -32,7 +32,7 @@ With the "jar-with-dependencies" built, you can run with:
 
         java -jar target/MoveItClientExample-1.0-SNAPSHOT-jar-with-dependencies.jar
 
-# after NISTIR1 tag
+
 
 
 

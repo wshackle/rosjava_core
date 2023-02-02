@@ -14,6 +14,20 @@
         </dependency>
     </dependencies>
     
+    <build>
+        
+        <pluginManagement>
+            <!---  Avoid using old compiler plugin which will download log4j ( even though this isn't really a problem.) -->
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.10.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
     <!--
     One should select one and only one of the two profiles:
 

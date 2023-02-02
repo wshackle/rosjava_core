@@ -110,7 +110,7 @@ public class MoveItControlNodeMain extends AbstractNodeMain {
         moveit_msgs.PositionIKRequest posIKRequest = getPositionIKrequest.getIkRequest();
         geometry_msgs.PoseStamped poseStamped = posIKRequest.getPoseStamped();
         poseStamped.setPose(newGoalPose);
-        posIKRequest.setGroupName(moveItGroupName);
+        posIKRequest.setGroupName(moveGroupInfo.getMoveItGroupName());
         getPositionIKrequest.setIkRequest(posIKRequest);
         computeIkServiceCLient.call(getPositionIKrequest, new ServiceResponseListener<moveit_msgs.GetPositionIKResponse>() {
             @Override
@@ -146,7 +146,7 @@ public class MoveItControlNodeMain extends AbstractNodeMain {
         final GetPositionFKRequest computeFKServiceRequest
                 = this.getComputeFkServiceCLient().newMessage();
         computeFKServiceRequest.getRobotState().setJointState(jointState);
-        computeFKServiceRequest.getFkLinkNames().add(lastLinkName);
+        computeFKServiceRequest.getFkLinkNames().add(moveGroupInfo.getLastLinkName());
         this.getComputeFkServiceCLient().call(computeFKServiceRequest,
                 new ServiceResponseListener<GetPositionFKResponse>() {
             @Override
@@ -167,21 +167,6 @@ public class MoveItControlNodeMain extends AbstractNodeMain {
         });
         return futurePose;
     }
-    
-    private String workspaceFrameId = System.getProperty("moveitcontrol.workspaceFrameId","panda_link0");
-    private String moveItGroupName = System.getProperty("moveitcontrol.moveitGroupName","panda_arm");
-
-    private String lastLinkName = System.getProperty("moveitcontrol.lastLinkName","panda_link8");
-
-    public String getLastLinkName() {
-        return lastLinkName;
-    }
-
-    public void setLastLinkName(String lastLinkName) {
-        this.lastLinkName = lastLinkName;
-    }
-    
-    
 
     public void gotoJointPositions(final double[] goalJointPositions, final List<String> goalJointNames) {
         final MoveGroupActionGoal moveGoal = moveRequestPublisher.newMessage();
@@ -197,8 +182,8 @@ public class MoveItControlNodeMain extends AbstractNodeMain {
         minCorner.setX(-1.0);
         minCorner.setY(-1.0);
         minCorner.setZ(-1.0);
-        workspaceParameters.getHeader().setFrameId(workspaceFrameId);
-        moveRequest.setGroupName(moveItGroupName);
+        workspaceParameters.getHeader().setFrameId(moveGroupInfo.getWorkspaceFrameId());
+        moveRequest.setGroupName(moveGroupInfo.getMoveItGroupName());
 //                        moveRequest.getStartState().setJointState(currentJointState);
         final List<Constraints> goalConstraints = moveRequest.getGoalConstraints();
         Constraints constraints = topicMessageFactory.newFromType(Constraints._TYPE);
@@ -219,31 +204,36 @@ public class MoveItControlNodeMain extends AbstractNodeMain {
         moveRequestPublisher.publish(moveGoal);
         System.out.println("published newGoal");
     }
-    
-    public String getWorkspaceFrameId() {
-        return workspaceFrameId;
+
+    private MoveGroupInfo moveGroupInfo;
+
+    /**
+     * Get the value of moveGroupInfo
+     *
+     * @return the value of moveGroupInfo
+     */
+    public MoveGroupInfo getMoveGroupInfo() {
+        return moveGroupInfo;
     }
 
-    public void setWorkspaceFrameId(String workspaceFrameId) {
-        this.workspaceFrameId = workspaceFrameId;
-    }
-
-    public String getMoveItGroupName() {
-        return moveItGroupName;
-    }
-
-    public void setMoveItGroupName(String moveItGroupName) {
-        this.moveItGroupName = moveItGroupName;
+    /**
+     * Set the value of moveGroupInfo
+     *
+     * @param moveGroupInfo new value of moveGroupInfo
+     */
+    public void setMoveGroupInfo(MoveGroupInfo moveGroupInfo) {
+        this.moveGroupInfo = moveGroupInfo;
     }
 
     private static final CompletableFuture<MoveItControlNodeMain> futureMoveItControlNodeMain = new CompletableFuture<>();
 
-    public static void main(String[] args) throws Exception {
-        futureMoveItControlNodeMain.thenAccept((MoveItControlNodeMain moveItControlNodeMain) -> {
-            startMoveItControlJFrame(moveItControlNodeMain);
-        });
+//    public static void main(String[] args) throws Exception {
+//        futureMoveItControlNodeMain.thenAccept((MoveItControlNodeMain moveItControlNodeMain) -> {
+//            startMoveItControlJFrame(moveItControlNodeMain);
+//        });
+//        org.ros.RosRun.main(new String[]{MoveItControlNodeMain.class.getCanonicalName()});
+//    }
+    public static void start() throws Exception {
         org.ros.RosRun.main(new String[]{MoveItControlNodeMain.class.getCanonicalName()});
     }
-
-    
 }

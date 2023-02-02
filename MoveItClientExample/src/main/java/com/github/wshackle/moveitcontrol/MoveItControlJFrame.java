@@ -27,8 +27,10 @@ import geometry_msgs.Pose;
 import geometry_msgs.Quaternion;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import sensor_msgs.JointState;
 
@@ -43,6 +45,7 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
             new MoveItControlJFrame(moveItControlNodeMain).setVisible(true);
         });
     }
+
     /**
      * Creates new form MoveItControlJFrame
      */
@@ -53,23 +56,29 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
     public MoveItControlJFrame(MoveItControlNodeMain moveItControlNodMain) {
         this.moveItControlNodMain = moveItControlNodMain;
         initComponents();
+        jMenuItemGroupName.setText("GroupName=" + moveGroupInfo.getMoveItGroupName());
         if (null != moveItControlNodMain) {
-            moveItControlNodMain.getJointStateSubscriber()
-                    .addMessageListener((JointState jointState) -> {
-                        try {
-                            final double[] jointStatePositions = jointState.getPosition();
-                            final List<String> jointStateNames = jointState.getName();
-                            updateTableCurrentJointPositions(jointStateNames, jointStatePositions);
-                            moveItControlNodMain.callForwardKinematicsService(jointState)
-                                    .thenAccept((Pose pose) -> {
-                                       updateCurrentPose(pose);
-                                    });
-                        } catch (Exception ex) {
-                            Logger.getLogger(MoveItControlJFrame.class.getName()).log(Level.SEVERE, null, ex);
-                            throw new RuntimeException(ex);
-                        } 
-                    });
+            startListener(moveItControlNodMain);
         }
+
+    }
+
+    private void startListener(MoveItControlNodeMain moveItControlNodMain1) {
+        moveItControlNodMain1.setMoveGroupInfo(moveGroupInfo);
+        moveItControlNodMain1.getJointStateSubscriber().addMessageListener((JointState jointState) -> {
+            try {
+                final double[] jointStatePositions = jointState.getPosition();
+                final List<String> jointStateNames = jointState.getName();
+                updateTableCurrentJointPositions(jointStateNames, jointStatePositions);
+                moveItControlNodMain1.callForwardKinematicsService(jointState).thenAccept((Pose pose) -> {
+                    updateCurrentPose(pose);
+                });
+            } catch (Exception ex) {
+                Logger.getLogger(MoveItControlJFrame.class.getName()).log(Level.SEVERE, null, ex);
+                throw new RuntimeException(ex);
+            }
+        });
+        jCheckBoxMenuItemConnected.setSelected(true);
     }
 
     private volatile Pose currentPose = null;
@@ -113,7 +122,7 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
         });
     }
 
-    private final MoveItControlNodeMain moveItControlNodMain;
+    private MoveItControlNodeMain moveItControlNodMain;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,6 +152,11 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
         jMenuItemCopyCurrentToGoal = new javax.swing.JMenuItem();
         jMenuItemMoveToGoalPose = new javax.swing.JMenuItem();
         jMenuItemMoveToJointPositions = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jCheckBoxMenuItemConnected = new javax.swing.JCheckBoxMenuItem();
+        jMenuItemGroupName = new javax.swing.JMenuItem();
+        jMenuItemWorkspaceID = new javax.swing.JMenuItem();
+        jMenuItemLastLink = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Java MoveIt  1/ ROS 1 Client");
@@ -387,6 +401,43 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Options");
+
+        jCheckBoxMenuItemConnected.setSelected(true);
+        jCheckBoxMenuItemConnected.setText("Connected");
+        jCheckBoxMenuItemConnected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItemConnectedActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jCheckBoxMenuItemConnected);
+
+        jMenuItemGroupName.setText("Group Name");
+        jMenuItemGroupName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGroupNameActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemGroupName);
+
+        jMenuItemWorkspaceID.setText("WorkspaceFrameID");
+        jMenuItemWorkspaceID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemWorkspaceIDActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemWorkspaceID);
+
+        jMenuItemLastLink.setText("Last Link");
+        jMenuItemLastLink.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemLastLinkActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemLastLink);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -438,14 +489,14 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCopyCurrentToGoalActionPerformed
 
     private void jMenuItemMoveToGoalPoseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMoveToGoalPoseActionPerformed
-        double position_x =  (double) this.jTableGoalPose.getValueAt(0,1);
-        double position_y =  (double) this.jTableGoalPose.getValueAt(1,1);
-        double position_z =  (double) this.jTableGoalPose.getValueAt(2,1);
-        double orientation_w =  (double) this.jTableGoalPose.getValueAt(3,1);
-        double orientation_x =  (double) this.jTableGoalPose.getValueAt(4,1);
-        double orientation_y =  (double) this.jTableGoalPose.getValueAt(5,1);
-        double orientation_z =  (double) this.jTableGoalPose.getValueAt(6,1);
-        if(null != moveItControlNodMain) {
+        double position_x = (double) this.jTableGoalPose.getValueAt(0, 1);
+        double position_y = (double) this.jTableGoalPose.getValueAt(1, 1);
+        double position_z = (double) this.jTableGoalPose.getValueAt(2, 1);
+        double orientation_w = (double) this.jTableGoalPose.getValueAt(3, 1);
+        double orientation_x = (double) this.jTableGoalPose.getValueAt(4, 1);
+        double orientation_y = (double) this.jTableGoalPose.getValueAt(5, 1);
+        double orientation_z = (double) this.jTableGoalPose.getValueAt(6, 1);
+        if (null != moveItControlNodMain) {
             Pose pose = moveItControlNodMain.newPose();
             pose.getPosition().setX(position_x);
             pose.getPosition().setY(position_y);
@@ -464,10 +515,67 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
             double joint_position_i = (double) jTableGoalJointPositions.getValueAt(i, 1);
             joint_positions[i] = joint_position_i;
         }
-        if(null != moveItControlNodMain) {
+        if (null != moveItControlNodMain) {
             moveItControlNodMain.gotoJointPositions(joint_positions, currentJointStateNames);
         }
     }//GEN-LAST:event_jMenuItemMoveToJointPositionsActionPerformed
+
+    private void jCheckBoxMenuItemConnectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemConnectedActionPerformed
+        if (null == moveItControlNodMain && jCheckBoxMenuItemConnected.isSelected()) {
+            try {
+                jCheckBoxMenuItemConnected.setEnabled(false);
+                MoveItControlNodeMain.start();
+                final CompletableFuture<MoveItControlNodeMain> futureMoveItControlNodeMain = MoveItControlNodeMain.getFutureMoveItControlNodeMain();
+                futureMoveItControlNodeMain.thenAccept((MoveItControlNodeMain nodeMain) -> {
+                    this.moveItControlNodMain = nodeMain;
+                    startListener(nodeMain);
+                });
+            } catch (Exception ex) {
+                Logger.getLogger(MoveItControlJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jCheckBoxMenuItemConnectedActionPerformed
+
+    private void jMenuItemGroupNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGroupNameActionPerformed
+
+        String newGroupName = JOptionPane.showInputDialog(this, "GroupName", moveGroupInfo.getMoveItGroupName());
+        moveGroupInfo.setMoveItGroupName(newGroupName);
+        jMenuItemGroupName.setText("GroupName=" + moveGroupInfo.getMoveItGroupName());
+
+    }//GEN-LAST:event_jMenuItemGroupNameActionPerformed
+
+    private void jMenuItemWorkspaceIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWorkspaceIDActionPerformed
+        String newWorkspaceID = JOptionPane.showInputDialog(this, "WorkspaceID", moveGroupInfo.getWorkspaceFrameId());
+        moveGroupInfo.setWorkspaceFrameId(newWorkspaceID);
+        jMenuItemWorkspaceID.setText("WorkspaceFrameID=" + moveGroupInfo.getWorkspaceFrameId());
+    }//GEN-LAST:event_jMenuItemWorkspaceIDActionPerformed
+
+    private void jMenuItemLastLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLastLinkActionPerformed
+        String newLastLink = JOptionPane.showInputDialog(this, "LastLink", moveGroupInfo.getLastLinkName());
+        moveGroupInfo.setLastLinkName(newLastLink);
+        jMenuItemLastLink.setText("LastLink=" + moveGroupInfo.getLastLinkName());
+
+    }//GEN-LAST:event_jMenuItemLastLinkActionPerformed
+
+    private MoveGroupInfo moveGroupInfo = new MoveGroupInfo();
+
+    /**
+     * Get the value of moveGroupInfo
+     *
+     * @return the value of moveGroupInfo
+     */
+    public MoveGroupInfo getMoveGroupInfo() {
+        return moveGroupInfo;
+    }
+
+    /**
+     * Set the value of moveGroupInfo
+     *
+     * @param moveGroupInfo new value of moveGroupInfo
+     */
+    public void setMoveGroupInfo(MoveGroupInfo moveGroupInfo) {
+        this.moveGroupInfo = moveGroupInfo;
+    }
 
     /**
      * @param args the command line arguments
@@ -505,11 +613,16 @@ public class MoveItControlJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemConnected;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemCopyCurrentToGoal;
+    private javax.swing.JMenuItem jMenuItemGroupName;
+    private javax.swing.JMenuItem jMenuItemLastLink;
     private javax.swing.JMenuItem jMenuItemMoveToGoalPose;
     private javax.swing.JMenuItem jMenuItemMoveToJointPositions;
+    private javax.swing.JMenuItem jMenuItemWorkspaceID;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
